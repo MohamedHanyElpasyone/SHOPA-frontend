@@ -1,1 +1,72 @@
 @import 'tailwindcss';
+
+/* ============================================================
+   SHOPA DESIGN TOKENS
+
+   RULES:
+   1. All tokens live in this file. Do not create tokens elsewhere.
+   2. Naming: --<category>-<purpose>
+      Categories: color, radius, shadow, font
+      Purpose: the ROLE the token plays, not the value.
+      ✅ --color-accent, --color-surface, --color-danger
+      ❌ --color-black, --color-btn, --color-productcard
+   3. Never name a token after a specific component.
+      If two components share a color, they share a token.
+   4. Before adding a new token, check if an existing token works.
+      If yes, use it. Don't add a near-duplicate.
+   5. Add tokens only when a feature needs them. No speculative tokens.
+   ============================================================ */
+
+@theme {
+  /* Colors */
+  --color-page: #fafafa;
+  --color-surface: #ffffff;
+  --color-border: #ececef;
+  --color-text: #0a0a0a;
+  --color-secondary: #71717a;
+  --color-muted: #a1a1aa;
+  --color-accent: #18181b;
+  --color-accent-fg: #ffffff;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md:
+    0 4px 16px 0 rgba(0, 0, 0, 0.06), 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  --shadow-lg:
+    0 12px 40px 0 rgba(0, 0, 0, 0.1), 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* Fonts */
+  --font-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+[data-theme='dark'] {
+  /* Colors */
+  --color-page: #0f0f11;
+  --color-surface: #18181b;
+  --color-border: #27272a;
+  --color-text: #fafafa;
+  --color-secondary: #a1a1aa;
+  --color-muted: #71717a;
+  --color-accent: #fafafa;
+  --color-accent-fg: #09090b;
+}
+
+/* Base */
+body {
+  background-color: var(--color-page);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+button {
+  cursor: pointer;
+}
