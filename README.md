@@ -177,7 +177,7 @@ This mirrors how real teams work — the structure emerges from the work, it isn
 
 ## Commit Convention
 
-This project follows [Conventional Commits].
+This project follows Conventional Commits.
 
 **Format:** `type(scope): description`
 
@@ -203,20 +203,18 @@ This project follows [Conventional Commits].
 
 Scopes identify which part of the codebase a commit touches. They are **optional** — use them when they add clarity, skip them for project-wide changes.
 
-| Scope       | Use for                                        |
-| ----------- | ---------------------------------------------- |
-| `products`  | Product grid, cards, search, filter, sort      |
-| `cart`      | Cart state, drawer, items, checkout button     |
-| `wishlist`  | Wishlist state, heart button                   |
-| `quickview` | Quick view modal                               |
-| `toast`     | Toast notifications                            |
-| `theme`     | Dark/light mode                                |
-| `layout`    | Header, Footer, Layout wrapper                 |
-| `ui`        | Shared UI primitives (Button, Input, Skeleton) |
-| `types`     | TypeScript types                               |
-| `styles`    | Global CSS, Tailwind tokens                    |
-| `config`    | Tooling — ESLint, Prettier, Vite, tsconfig     |
-| `deps`      | Dependency updates                             |
+| Scope       | Use for                                    |
+| ----------- | ------------------------------------------ |
+| `products`  | Product grid, cards, search, filter, sort  |
+| `cart`      | Cart state, drawer, items, checkout button |
+| `wishlist`  | Wishlist state, heart button               |
+| `quickview` | Quick view modal                           |
+| `toast`     | Toast notifications                        |
+| `theme`     | Dark/light mode                            |
+| `types`     | TypeScript types                           |
+| `styles`    | Global CSS, Tailwind tokens                |
+| `config`    | Tooling — ESLint, Prettier, Vite, tsconfig |
+| `deps`      | Dependency updates                         |
 
 ### Examples
 
