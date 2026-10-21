@@ -21,6 +21,7 @@
   /* Colors */
   --color-page: #fafafa;
   --color-surface: #ffffff;
+  --color-surface-2: #f4f4f5;
   --color-border: #ececef;
   --color-text: #0a0a0a;
   --color-secondary: #71717a;
@@ -52,6 +53,7 @@
   /* Colors */
   --color-page: #0f0f11;
   --color-surface: #18181b;
+  --color-surface-2: #27272a;
   --color-border: #27272a;
   --color-text: #fafafa;
   --color-secondary: #a1a1aa;
