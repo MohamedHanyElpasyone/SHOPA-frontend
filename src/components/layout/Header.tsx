@@ -1,7 +1,10 @@
-import { Moon, ShoppingBag } from 'lucide-react';
+import { Moon, ShoppingBag, Sun } from 'lucide-react';
 import logo from '../../assets/shopa-icon.svg';
+import useTheme from '../../features';
 
 const Header = () => {
+  const { theme, toggle } = useTheme();
+
   return (
     <header className="bg-surface px-6 py-4 border-border border-b sticky top-0">
       <div className="flex justify-between items-center">
@@ -15,8 +18,13 @@ const Header = () => {
           <button
             className="flex w-10 h-10 justify-center items-center hover:text-text hover:bg-surface-2 rounded-md"
             aria-label="Toggle theme"
+            onClick={toggle}
           >
-            <Moon className="h-5" />
+            {theme === 'light' ? (
+              <Moon className="h-5" />
+            ) : (
+              <Sun className="h-5" />
+            )}
           </button>
           <button
             className="flex w-10 h-10 justify-center items-center hover:text-text hover:bg-surface-2 rounded-md"
