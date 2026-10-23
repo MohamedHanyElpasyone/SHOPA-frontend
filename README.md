@@ -212,7 +212,6 @@ Scopes identify which part of the codebase a commit touches. They are **optional
 | `toast`     | Toast notifications                        |
 | `theme`     | Dark/light mode                            |
 | `types`     | TypeScript types                           |
-| `styles`    | Global CSS, Tailwind tokens                |
 | `config`    | Tooling — ESLint, Prettier, Vite, tsconfig |
 | `deps`      | Dependency updates                         |
 
