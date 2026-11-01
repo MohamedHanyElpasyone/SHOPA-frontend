@@ -1,6 +1,6 @@
 import { Moon, ShoppingBag, Sun } from 'lucide-react';
 import logo from '../../assets/shopa-icon.svg';
-import useTheme from '../../features';
+import useTheme from '../../features/theme';
 
 const Header = () => {
   const { theme, toggle } = useTheme();
