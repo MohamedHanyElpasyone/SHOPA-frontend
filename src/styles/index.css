@@ -42,6 +42,16 @@
   --radius-lg: 20px;
   --radius-xl: 28px;
 
+  /* Motion - Durations */
+  --transition-duration-fast: 150ms; /* hover, focus, press, micro-feedback */
+  --transition-duration-normal: 250ms; /* small reveals, theme, cards, toast exit */
+  --transition-duration-slow: 350ms; /* large reveals: drawer, modal, card-in */
+  --transition-duration-lazy: 500ms; /* deliberate editorial gestures: image zoom */
+  --transition-duration-ambient: 1400ms; /* loops: skeleton shimmer */
+
+  /* Motion - Easings */
+  --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
+
   /* Fonts */
   --font-sans:
     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -71,7 +81,7 @@ body {
 
 ::selection {
   background-color: var(--color-accent);
-  color: var(--color-surface);
+  color: var(--color-accent-fg);
 }
 
 button {
