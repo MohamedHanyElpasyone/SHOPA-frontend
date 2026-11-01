@@ -16,7 +16,7 @@ const Header = () => {
         </div>
         <div className="flex gap-1 items-center text-secondary">
           <button
-            className="flex w-10 h-10 justify-center items-center hover:text-text hover:bg-surface-2 rounded-md"
+            className="flex w-10 h-10 justify-center items-center hover:text-text hover:bg-surface-2 rounded-md duration-fast ease-out active:scale-95"
             aria-label="Toggle theme"
             onClick={toggle}
           >
@@ -27,7 +27,7 @@ const Header = () => {
             )}
           </button>
           <button
-            className="flex w-10 h-10 justify-center items-center hover:text-text hover:bg-surface-2 rounded-md"
+            className="flex w-10 h-10 justify-center items-center hover:text-text hover:bg-surface-2 rounded-md duration-fast ease-out active:scale-95"
             aria-label="Open cart"
           >
             <ShoppingBag className="h-5" />
