@@ -177,57 +177,86 @@ This mirrors how real teams work — the structure emerges from the work, it isn
 
 ## Commit Convention
 
-This project follows Conventional Commits.
+This project follows the Conventional Commits specification.
 
 **Format:** `type(scope): description`
 
-- `type` — required (see list below)
-- `scope` — optional, in parentheses (see scope list below)
+- `type` — required (see below)
+- `scope` — optional, in parentheses (see below)
 - `description` — imperative mood, lowercase, no period
 
 ### Types
 
-- `feat:` — new feature
-- `fix:` — bug fix
-- `docs:` — documentation
-- `style:` — code formatting (indentation, quotes, whitespace — no behavior change)
-- `refactor:` — code restructuring (no behavior change)
-- `test:` — tests
-- `chore:` — maintenance (deps, config, tooling)
+- `feat:` — a new user-visible capability (a header, a button, an interaction the user can see or use)
+- `fix:` — a bug fix
+- `docs:` — documentation only
+- `style:` — formatting only (whitespace, quotes, indentation — no behavior change, no visible change)
+- `refactor:` — source code restructuring with no behavior change and no visible change
 - `perf:` — performance improvements
-- `ui:` — visual appearance (CSS, UI tweaks)
-- `build:` — build system changes
-- `layout:` — layout changes
+- `build:` — changes to `vite.config.ts`, `tsconfig*.json`, or `package.json` scripts
+- `ci:` — changes to `.github/workflows/`, deployment configs, GitHub Actions
+- `chore:` — maintenance that doesn't touch source code or tests (`.prettierrc`, `.editorconfig`, `.gitignore`, `.husky/`, dependency bumps)
+- `revert:` — reverts a previous commit
+
+### Choosing the Right Type
+
+| You changed                                                                          | Type        |
+| ------------------------------------------------------------------------------------ | ----------- |
+| A new component, page, or interaction the user will see                              | `feat:`     |
+| Existing behavior was broken and now works                                           | `fix:`      |
+| Comments, README, inline docs                                                        | `docs:`     |
+| Prettier, ESLint --fix, quote style, whitespace                                      | `style:`    |
+| Moved code, renamed variables, extracted functions (no visible or behavioral change) | `refactor:` |
+| Faster render, smaller bundle, fewer queries                                         | `perf:`     |
+| `vite.config.ts`, `tsconfig.json`, `package.json` scripts                            | `build:`    |
+| `.github/workflows/*`, deployment configs                                            | `ci:`       |
+| `.prettierrc`, `.editorconfig`, `.gitignore`, `.husky/`, dependency bumps            | `chore:`    |
+
+**`feat:` means "the user can see or do something new."** It does not refer to the `features/` folder — a header in `components/layout/` is still `feat:` because the user sees it.
+
+**`style:` vs `feat:`** — `style:` is formatting only, never user-visible. Whitespace and quote style are `style:`. A color or layout change is `feat:`.
+
+**`refactor:` vs `style:`** — `refactor:` changes source code structure (moving, renaming, extracting). `style:` changes only how the code looks on disk. Both leave the app identical to the user.
+
+**`refactor:` vs `chore:`** — `refactor:` touches source code. `chore:` does not. A refactor is source-code work with no visible change. A chore is non-source work (config, deps, tooling).
 
 ### Scopes
 
-Scopes identify which part of the codebase a commit touches. They are **optional** — use them when they add clarity, skip them for project-wide changes.
+Scopes identify which part of the codebase a commit touches. Optional — use when they add clarity, skip when the change is project-wide.
 
-| Scope       | Use for                                    |
-| ----------- | ------------------------------------------ |
-| `products`  | Product grid, cards, search, filter, sort  |
-| `cart`      | Cart state, drawer, items, checkout button |
-| `wishlist`  | Wishlist state, heart button               |
-| `quickview` | Quick view modal                           |
-| `toast`     | Toast notifications                        |
-| `theme`     | Dark/light mode                            |
-| `types`     | TypeScript types                           |
-| `config`    | Tooling — ESLint, Prettier, Vite, tsconfig |
-| `deps`      | Dependency updates                         |
+| Scope       | Use for                                                                |
+| ----------- | ---------------------------------------------------------------------- |
+| `products`  | Product grid, cards, search, filter, sort                              |
+| `cart`      | Cart state, drawer, items, checkout                                    |
+| `wishlist`  | Wishlist state, heart button                                           |
+| `quickview` | Quick view modal                                                       |
+| `toast`     | Toast notifications                                                    |
+| `theme`     | Dark/light mode                                                        |
+| `layout`    | Any file in src/components/layout/ — Header, Footer, Layout wrapper    |
+| `ui`        | Shared UI primitives — Button, Input, Modal (reusable across features) |
+| `styles`    | Global CSS, Tailwind tokens                                            |
+| `types`     | TypeScript types                                                       |
+| `config`    | Tooling — ESLint, Prettier, Vite, tsconfig                             |
+| `deps`      | Dependency updates                                                     |
+
+**`layout` vs `ui`** — `layout` is the structural shell (one-off: header, footer, page wrapper). `ui` is reusable primitives designed to be used everywhere (Button, Input, Modal). When a commit touches both, pick the primary purpose.
 
 ### Examples
 
 ```bash
 feat(products): add product grid component
+feat(layout): build header with logo and icon buttons
+feat(theme): add dark mode toggle with persistence
 fix(cart): correct total price calculation
-chore(deps): bump react to 19.1.0
+chore(deps): install lucide-react
+chore(styles): add motion duration and easing tokens
+chore(config): add prettier and editorconfig
 refactor(styles): extract colors into @theme tokens
 docs: update project structure section
-chore: scaffold initial folder structure
-```
-
-**When to skip the scope:** if the change is project-wide or obvious from the description (e.g., `docs:`, `style:`, `build:` changes usually don't need a scope).
-
+style: format codebase with prettier
+build: configure path alias in vite and tsconfig
+ci: add pre-push hook to run build
 ## Deployment
 
 Not deployed yet. Will be deployed to Vercel once the first feature set is complete.
+```
